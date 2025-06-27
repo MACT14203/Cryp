@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Encriptador de Mensajes</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div class="container">
+    <h1>🛡️ Encriptador de Mensajes</h1>
+
+    <label>Tu clave personal:</label>
+    <input type="password" id="clave" placeholder="Ingresa tu clave" />
+
+    <label>Mensaje:</label>
+    <textarea id="mensaje" placeholder="Escribe tu mensaje..."></textarea>
+
+    <div class="botones">
+      <button onclick="cifrar()">🔐 Cifrar</button>
+      <button onclick="descifrar()">🔓 Descifrar</button>
+      <button onclick="copiar()">📋 Copiar</button>
+      <button onclick="compartirWhatsApp()">📤 WhatsApp</button>
+      <button onclick="borrarHistorial()">🧹 Borrar historial</button>
+      <button onclick="cambiarClave()">🔑 Cambiar clave</button>
+      <button onclick="exportarHistorial()">💾 Exportar historial</button>
+    </div>
+
+    <label>Resultado:</label>
+    <textarea id="resultado" readonly></textarea>
+
+    <label>Historial:</label>
+    <ul id="historial"></ul>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
